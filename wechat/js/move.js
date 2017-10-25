@@ -29,15 +29,15 @@ function animate(obj, json, fn){  //json = {left:200, top:400}
 	//再开启新定时器
 	obj.timer = setInterval(function(){
 		
-		var bStop = true; //是否可以停止, 是否所有属性都到达了目标值 
+		let bStop = true; //是否可以停止, 是否所有属性都到达了目标值 
 		
-		for (var attr in json) {
+		for (let attr in json) {
 			//attr: 属性名称
 			//iTarget: 目标值
-			var iTarget = json[attr]; //目标值
+			let iTarget = json[attr]; //目标值
 			
 			//1, current
-			var current = 0;
+			let current = 0;
 			if (attr == "opacity") { //透明度
 				current = parseFloat(getStyleAttr(obj, attr)) * 100;
 				current = Math.round(current); //四舍五入
@@ -48,7 +48,7 @@ function animate(obj, json, fn){  //json = {left:200, top:400}
 			}
 			
 			//2, speed
-			var speed = (iTarget-current)/8;
+			let speed = (iTarget-current)/8;
 			speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
 			
 			//3, 临界值
@@ -103,7 +103,7 @@ function animate(obj, attr, iTarget, fn){
 	obj.timer = setInterval(function(){
 		
 		//1, current
-		var current = 0;
+		let current = 0;
 		if (attr == "opacity") { //透明度
 			current = parseFloat(getStyleAttr(obj, attr)) * 100;
 			current = Math.round(current); //四舍五入
@@ -114,7 +114,7 @@ function animate(obj, attr, iTarget, fn){
 		}
 		
 		//2, speed
-		var speed = (iTarget-current)/8;
+		let speed = (iTarget-current)/8;
 		speed = speed>0 ? Math.ceil(speed) : Math.floor(speed);
 		
 		//3, 临界值
