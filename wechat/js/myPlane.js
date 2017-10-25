@@ -3,14 +3,14 @@
 
 //我的飞机
 
-var myPlane = {
+let myPlane = {
 	
 	//属性
 	ele: null,
 	fireInterval: 300, //子弹发射间隔
 	
 	//方法
-	init: function(){
+	init(){
 		this.ele = document.createElement("div");
 		gameEngine.ele.appendChild(this.ele);
 		this.ele.className = "myplane";
@@ -20,10 +20,10 @@ var myPlane = {
 	},
 	
 	//发射子弹
-	fire: function(){
+	fire(){
 		this.timer = setInterval(function(){
 			//创建子弹对象
-			var bullet = new Bullet();
+			let bullet = new Bullet();
 			bullet.init().move();
 			
 		}, this.fireInterval);
@@ -34,12 +34,12 @@ var myPlane = {
 		//拖拽
 		this.ele.onmousedown = function(e){
 			e = e || event;
-			var disx = e.offsetX;
-			var disy = e.offsetY;
+			let disx = e.offsetX;
+			let disy = e.offsetY;
 			
 			document.onmousemove = function(e){
 				e = e || event;
-				var x = e.pageX - disx - gameEngine.ele.offsetLeft;
+				let x = e.pageX - disx - gameEngine.ele.offsetLeft;
 				if (x < 0) x = 0;
 				if (x > gameEngine.ele.offsetWidth-myPlane.ele.offsetWidth) {
 					x = gameEngine.ele.offsetWidth-myPlane.ele.offsetWidth
@@ -59,9 +59,9 @@ var myPlane = {
 		clearInterval(this.timer);
 		
 		//动画
-		var dieImgs = ["images2/me_die1.png", "images2/me_die2.png", "images2/me_die3.png", "images2/me_die4.png"]
-		var i = 0;
-		var dieTimer = setInterval(function(){
+		let dieImgs = ["images2/me_die1.png", "images2/me_die2.png", "images2/me_die3.png", "images2/me_die4.png"]
+		let i = 0;
+		let dieTimer = setInterval(function(){
 			
 			if (i >= dieImgs.length) {
 				clearInterval(dieTimer);
