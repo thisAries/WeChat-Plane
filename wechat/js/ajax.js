@@ -16,10 +16,10 @@ function ajax(obj){
 	obj.async = obj.async==undefined ? true : obj.async;
 	
 	//1, 创建xhr对象
-	var xhr = createXHR();
+	let xhr = createXHR();
 	
 	//2, open
-	var paramStr = getParamStr(obj.data);
+	let paramStr = getParamStr(obj.data);
 	
 	if (obj.type.toLowerCase() == "get") {
 		obj.url += paramStr.length==0 ? "" : ("?" + paramStr);
@@ -61,9 +61,9 @@ function ajax(obj){
 
 //将参数变成字符串 {regname:"zhagnsan", pwd:123} => "regname=zhangsan&pwd=123"
 function getParamStr(obj){
-	var arr = [];
-	for (var key in obj) {
-		var str = key + "=" + obj[key];
+	let arr = [];
+	for (let key in obj) {
+		let str = key + "=" + obj[key];
 		arr.push(str);
 	}
 	return arr.join("&");
