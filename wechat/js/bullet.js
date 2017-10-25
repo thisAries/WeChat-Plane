@@ -25,7 +25,7 @@ function Bullet(){
 	//移动
 	this.move = function(){
 		
-		var that = this;
+		let that = this;
 		this.timer = setInterval(function(){
 			
 			if (that.ele.offsetTop < -18) {
@@ -33,7 +33,7 @@ function Bullet(){
 				gameEngine.ele.removeChild(that.ele);
 				
 				//将当前子弹从数组gameEngine.allBullets中移除
-				var index = gameEngine.allBullets.indexOf(that);
+				let index = gameEngine.allBullets.indexOf(that);
 				gameEngine.allBullets.splice(index, 1);
 				
 				return;
@@ -52,10 +52,10 @@ function Bullet(){
 		this.ele.className = "bullet-die";
 		
 		//动画
-		var that = this;
-		var dieImgs = ["images2/die1.png", "images2/die2.png"];
-		var i = 0;
-		var dieTimer = setInterval(function(){
+		let that = this;
+		let dieImgs = ["images2/die1.png", "images2/die2.png"];
+		let i = 0;
+		let dieTimer = setInterval(function(){
 			if (i >= 1){
 				clearInterval(dieTimer);
 				gameEngine.ele.removeChild(that.ele);
