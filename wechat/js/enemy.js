@@ -63,7 +63,7 @@ function Enemy(type){
 	//移动
 	this.move = function(){
 		
-		var that = this;
+		let that = this;
 		this.timer = setInterval(function(){
 			
 			if (that.ele.offsetTop > gameEngine.ele.offsetHeight) {
@@ -97,9 +97,9 @@ function Enemy(type){
 		clearInterval(this.timer);
 		
 		//动画
-		var that = this;
-		var i = 0;
-		var dieTimer = setInterval(function(){
+		let that = this;
+		let i = 0;
+		let dieTimer = setInterval(function(){
 			if (i >= that.dieImgs.length){
 				clearInterval(dieTimer);
 				gameEngine.ele.removeChild(that.ele);
