@@ -4,8 +4,8 @@ var gulp = require('gulp');
 var babel = require('gulp-babel'); //es6转es5
 var uglify = require('gulp-uglify'); //js压缩插件
 //var bom = require('gulp-bom'); //解决中文乱码插件
-//var minifyCss = require('gulp-minify-css'); //css压缩插件
-//var minifyHtml = require('gulp-minify-html'); //html压缩插件
+var minifyCss = require('gulp-minify-css'); //css压缩插件
+var minifyHtml = require('gulp-minify-html'); //html压缩插件
 //var imagemin = require('gulp-imagemin'); //图片压缩相关插件
 //var pngquant = require('imagemin-pngquant'); //png图片压缩插件
 //var rename = require('gulp-rename'); //重命名插件
@@ -17,22 +17,22 @@ gulp.task('jsTask', function(){
 	.pipe(uglify()) //js压缩
 	.pipe(gulp.dest('PlaneWars-min/js'));
 });
-gulp.task('default', ['jsTask']);
+
 ////压缩css
-//gulp.task('cssTask', function(){
-//	gulp.src('css/*')
-//	.pipe(minifyCss())
-//	.pipe(gulp.dest('PlaneWars-min/css'));
-//});
+gulp.task('cssTask', function(){
+	gulp.src('../css/*')
+	.pipe(minifyCss())
+	.pipe(gulp.dest('PlaneWars-min/css'));
+});
 //
 ////压缩html
-//gulp.task('htmlTask2', function(){
-//	gulp.src('dafeiji.html')
-//	.pipe(minifyHtml())
-//	.pipe(gulp.dest('PlaneWars-min'));
-//});
+gulp.task('htmlTask2', function(){
+	gulp.src('../02_dafeiji.html')
+	.pipe(minifyHtml())
+	.pipe(gulp.dest('PlaneWars-min'));
+});
 
-
+gulp.task('default', ['jsTask','cssTask','htmlTask2']);
 
 //压缩图片
 //gulp.task('imgTask', function(){
